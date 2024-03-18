@@ -1,0 +1,59 @@
+{
+  "name": "boilerplate-webpack-gulp-html-scss-js-components",
+  "version": "1.0.0",
+  "description": "It's a boilerplate for usage of Webpack, Gulp, SCSS, HTML, JS, TS in a future project. Check out the docs below to be in actual tune!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "html+dev": "gulp --gulpfile ./configs/gulp/gulpfile.js html && webpack --config ./configs/webpack/webpack.config.js --progress",
+    "html": "gulp --gulpfile ./configs/gulp/gulpfile.js html --progress",
+    "start": "webpack-dev-server --config ./configs/webpack/webpack.config.js --progress",
+    "dev": "webpack --config ./configs/webpack/webpack.config.js --progress",
+    "build": "webpack --config ./configs/webpack/webpack.config.js --node-env=production --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitriy-Frostoff/boilerplate-webpack-gulp-html-scss-js-components.git"
+  },
+  "keywords": [
+    "webpack",
+    "gulp",
+    "html",
+    "scss",
+    "css",
+    "js",
+    "ts",
+    "components"
+  ],
+  "author": "Dmitriy Frostoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dmitriy-Frostoff/boilerplate-webpack-gulp-html-scss-js-components/issues"
+  },
+  "homepage": "https://github.com/Dmitriy-Frostoff/boilerplate-webpack-gulp-html-scss-js-components#readme",
+  "devDependencies": {
+    "css-loader": "^6.10.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "html-loader": "^5.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "image-minimizer-webpack-plugin": "^4.0.0",
+    "imagemin": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
+    "mini-css-extract-plugin": "^2.8.1",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.72.0",
+    "sass-loader": "^14.1.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.2",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.3"
+  }
+}

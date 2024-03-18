@@ -1,0 +1,673 @@
+* {
+  // Position
+
+  // block-model
+  box-sizing: border-box;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+html {
+  // Position
+
+  // block-model
+  scroll-behavior: smooth;
+  // Typography
+  font-size: 16px;
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+body {
+  // Position
+
+  // block-model
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0;
+
+  // Typography
+  @extend %font-Inter;
+  font-size: 16px;
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+@include media-tablet-minus1px {
+  .body_scroll-lock {
+    /* Position */
+
+    /* block-model */
+
+    /* Typography */
+
+    /* Decoration */
+    overflow: hidden;
+
+    /* Animation */
+
+    /* Various */
+  }
+}
+
+.link {
+  // Position
+
+  // block-model
+  width: inherit;
+  height: inherit;
+  // Typography
+  @extend %font-Inter;
+  @include text(
+    $size: var(--text-fsize-L),
+    $style: normal,
+    $weight: 400,
+    $height: 40px
+  );
+  line-height: 50px;
+  // Decoration
+  color: var(--color-light);
+  // Animation
+  @extend %transition-basic;
+  @extend %cursor-pointer;
+
+  // Various
+  &:hover,
+  &:active {
+    @extend %transition-basic;
+  }
+
+  &:hover {
+    @extend %transition-basic;
+    color: var(--color-interactive);
+    border-radius: inherit;
+  }
+
+  &:active {
+    @extend %transition-basic;
+    color: var(--color-interactive);
+    border-radius: inherit;
+  }
+}
+
+.title {
+  // Position
+
+  // block-model
+  @extend %reset-padding-margin;
+
+  // Typography
+  @extend %font-Forum;
+  @include text(
+    $size: var(--title-h1_desktop),
+    $style: normal,
+    $weight: 400,
+    $height: 50px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+  // Animation
+
+  // Various
+}
+
+.title-h1 {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-Forum;
+  @include text(
+    $size: var(--title-h1_desktop),
+    $style: normal,
+    $weight: 400,
+    $height: 50px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.title-h2 {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-Forum;
+  @include text(
+    $size: var(--title-h2_desktop),
+    $style: normal,
+    $weight: 400,
+    $height: 40px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.title-h3 {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-Forum;
+  @include text(
+    $size: var(--title-h2_desktop),
+    $style: normal,
+    $weight: 400,
+    $height: 40px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.title-h4 {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-Forum;
+  @include text(
+    $size: var(--title-h4_desktop),
+    $style: normal,
+    $weight: 400,
+    $height: 50px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.title-h5 {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-Forum;
+  @include text(
+    $size: var(--title-h5_desktop),
+    $style: normal,
+    $weight: 400,
+    $height: 40px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.paragraph-l {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-Inter;
+  @include text(
+    $size: var(--text-fsize-L),
+    $style: normal,
+    $weight: 400,
+    $height: 40px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.paragraph-s {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-Inter;
+  @include text(
+    $size: var(--text-fsize-S),
+    $style: normal,
+    $weight: 400,
+    $height: 10px
+  );
+
+  // Decoration
+  color: var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.code,
+p,
+pre,
+nav,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  // Position
+
+  // block-model
+  @extend %reset-padding-margin;
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+li {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  list-style: none;
+  // Animation
+
+  // Various
+}
+
+a {
+  // Position
+
+  // block-model
+  display: inline-block;
+  @extend %reset-padding-margin;
+
+  // Typography
+  color: var(--color-light);
+  // Decoration
+  text-decoration: none;
+  @extend %cursor-pointer;
+
+  // Animation
+
+  // Various
+  & :visited {
+    color: var(--color-light);
+  }
+}
+
+img {
+  // Position
+  @extend %reset-padding-margin;
+
+  // block-model
+  display: block;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.container {
+  // Position
+
+  // block-model
+  margin: 0 auto;
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+  @include media-wide-desktop {
+    max-width: var(--width-desktop);
+  }
+
+  @include media-desktop {
+    padding: 0 var(--padding-content-desktop);
+  }
+
+  @include media-tablet {
+    padding: 0 var(--padding-content-tablet);
+  }
+}
+
+.main {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.main__container {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+// ==============================================================================================================
+// =========================================== modificators!!! Priority over above ==============================
+// ==============================================================================================================
+
+.text_light {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: var(--color-light);
+  // Animation
+
+  // Various
+}
+
+.text_dark {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: var(--color-dark);
+  // Animation
+
+  // Various
+}
+
+.text_dark-background {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: var(--color-background-dark);
+  // Animation
+
+  // Various
+}
+
+.text_interactive {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: var(--color-interactive);
+  // Animation
+
+  // Various
+}
+
+.title__container {
+  // Position
+
+  // block-model
+  width: 100%;
+  align-items: center;
+  row-gap: 20px;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.title_underline {
+  // Position
+
+  // block-model
+  width: 50px;
+  min-height: 1px;
+  // Typography
+
+  // Decoration
+  border-bottom: 1px solid var(--color-dark);
+
+  // Animation
+
+  // Various
+}
+
+.text_uppercase {
+  // Position
+
+  // block-model
+
+  // Typography
+  text-transform: uppercase;
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.text_capitalize {
+  // Position
+
+  // block-model
+
+  // Typography
+  text-transform: capitalize;
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.text_bold {
+  // Position
+
+  // block-model
+
+  // Typography
+  font-weight: 700;
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.text_center {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+  @include media-tablet-large {
+    // Position
+
+    // block-model
+
+    // Typography
+    text-align: center;
+    // Decoration
+
+    // Animation
+
+    // Various
+  }
+}
+
+.text_let-space-3px {
+  // Position
+
+  // block-model
+
+  // Typography
+  letter-spacing: 3px;
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.text_let-space-2px {
+  // Position
+
+  // block-model
+
+  // Typography
+  letter-spacing: 2px;
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.text_height-normal {
+  // Position
+
+  // block-model
+
+  // Typography
+  line-height: normal;
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.hidden {
+  // Position
+
+  // block-model
+  display: none;
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+._overflow-hidden {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+  @include media-tablet-large {
+    // Position
+
+    // block-model
+
+    // Typography
+
+    // Decoration
+    overflow: hidden;
+
+    // Animation
+
+    // Various
+  }
+}
+
+._pointer-events_disable {
+  // Position
+
+  // block-model
+  @extend %pointer-events-disable;
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}

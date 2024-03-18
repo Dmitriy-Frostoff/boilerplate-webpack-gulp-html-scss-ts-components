@@ -1,0 +1,190 @@
+footer {
+  /* Position */
+
+  /* block-model */
+  width: 100%;
+  height: 10vh;
+  /* Typography */
+
+  /* Decoration */
+  background: var(--color-background-dark);
+  /* Animation */
+
+  /* Various */
+}
+
+.footer__container {
+  /* Position */
+
+  /* block-model */
+  justify-content: center;
+  /* Typography */
+
+  /* Decoration */
+
+  /* Animation */
+
+  /* Various */
+}
+
+.footer__list {
+  /* Position */
+
+  /* block-model */
+  width: 100%;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--padding-content-desktop) / 2) 0;
+  /* Typography */
+
+  /* Decoration */
+
+  /* Animation */
+
+  /* Various */
+}
+
+.footer__item {
+  /* Position */
+
+  /* block-model */
+
+  /* Typography */
+  color: var(--color-light);
+  /* Decoration */
+
+  /* Animation */
+
+  /* Various */
+}
+
+.footer__link {
+  /* Position */
+
+  /* block-model */
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  /* Typography */
+
+  // Decoration
+  @extend %cursor-pointer;
+  @extend %pointer-events-auto;
+  // Animation
+  @extend %transition-transform;
+  @extend %transition-color;
+
+  /* Various */
+  &:hover,
+  &:active {
+    color: var(--color-interactive);
+    @extend %cursor-pointer;
+    @include animation(
+      $name: pulsation,
+      $duration: 1s,
+      $iteration-count: infinite,
+      $direction: normal,
+      $timing-function: ease,
+      $delay: 0s
+    );
+  }
+
+  &:hover .footer__icon:nth-child(1),
+  &:active .footer__icon:nth-child(1) {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  &:hover .footer__icon:nth-child(2),
+  &:active .footer__icon:nth-child(2) {
+    visibility: visible;
+    width: inherit;
+    height: inherit;
+    @extend %cursor-pointer;
+    @include animation(
+      $name: pulsation,
+      $duration: 1s,
+      $iteration-count: infinite,
+      $direction: normal,
+      $timing-function: ease,
+      $delay: 0s
+    );
+  }
+}
+
+.footer__icon {
+  /* Position */
+
+  /* block-model */
+
+  /* Typography */
+
+  /* Decoration */
+  @extend %pointer-events-disable;
+  /* Animation */
+  @extend %transition-transform;
+  @extend %transition-color;
+
+  /* Various */
+  &:nth-child(2) {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+
+.rsschool-logo {
+  /* Position */
+
+  /* block-model */
+  width: 5vw;
+  /* Typography */
+  text-align: right;
+  /* Decoration */
+
+  /* Animation */
+
+  /* Various */
+  @include media-tablet-large {
+    /* Position */
+
+    /* block-model */
+    width: 13vw;
+    /* Typography */
+    text-align: right;
+    /* Decoration */
+
+    /* Animation */
+
+    /* Various */
+  }
+}
+
+.github-text {
+  /* Position */
+
+  /* block-model */
+  padding-top: 0.3vw;
+  /* Typography */
+
+  /* Decoration */
+  @extend %pointer-events-disable;
+  /* Animation */
+
+  /* Various */
+  @include media-tablet-large {
+    /* Position */
+
+    /* block-model */
+    padding-top: 0.55vw;
+    /* Typography */
+
+    /* Decoration */
+
+    /* Animation */
+
+    /* Various */
+  }
+}

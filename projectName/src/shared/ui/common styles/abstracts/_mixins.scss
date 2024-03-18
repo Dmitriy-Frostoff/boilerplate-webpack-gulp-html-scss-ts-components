@@ -1,0 +1,127 @@
+@mixin text(
+  $size: 20px,
+  $style: normal,
+  $weight: 400,
+  $height: $size,
+  $let-spacing: normal
+) {
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $let-spacing;
+}
+
+@mixin transition(
+  $name: all,
+  $duration: 0.7s,
+  $timing-function: ease,
+  $delay: 0s
+) {
+  transition: $name $duration $timing-function $delay;
+}
+
+@mixin flex-one-column(
+  $flex-wrap: nowrap,
+  $align-content: flex-start,
+  $justify-content: flex-start,
+  $align-items: flex-start
+) {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: $flex-wrap;
+  align-content: $align-content;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin flex-two-columns(
+  $flex-wrap: nowrap,
+  $align-content: flex-start,
+  $justify-content: space-between,
+  $align-items: flex-start
+) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: $flex-wrap;
+  align-content: $align-content;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin flex-multiple-columns(
+  $flex-wrap: wrap,
+  $align-content: flex-start,
+  $justify-content: space-between,
+  $align-items: flex-start
+) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: $flex-wrap;
+  align-content: $align-content;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin flex-two-child-basis($first-basis: 50%, $last-basis: 50%) {
+  > :first-child {
+    flex-basis: $first-basis;
+  }
+
+  > :last-child {
+    flex-basis: $last-basis;
+  }
+}
+
+@mixin flex-multiple-child-basis($basis: 30%) {
+  > * {
+    flex-basis: $basis;
+  }
+}
+
+@mixin grid-multiple-columns(
+  $rows: 2,
+  $columns: 4,
+  $el-width: calc(270 / 1200 * 100%),
+  $el-height: calc(435 / 1200 * 100%)
+) {
+  display: grid;
+  grid-template-rows: repeat($rows, $el-width);
+  grid-template-columns: repeat($columns, $el-height);
+}
+
+@mixin media-wide-desktop {
+  @media (min-width: calc(var(--width-desktop) + 1px)) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (max-width: var(--width-desktop)) {
+    @content;
+  }
+}
+
+@mixin media-tablet-large {
+  @media (max-width: var(--width-tablet-large)) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (max-width: var(--width-tablet)) {
+    @content;
+  }
+}
+
+@mixin media-tablet-small {
+  @media (max-width: var(--width-tablet-small)) {
+    @content;
+  }
+}
+
+@mixin media-tablet-minus1px {
+  @media (max-width: calc(var(--width-tablet) - 1px)) {
+    @content;
+  }
+}

@@ -1,0 +1,20 @@
+.layout-one-column {
+  @include flex-one-column();
+}
+
+.layout-two-columns {
+  @include flex-two-columns();
+}
+
+.layout-multiple-columns {
+  @include flex-multiple-columns();
+}
+
+.layout-multiple-grid-columns {
+  @include grid-multiple-columns(
+    $rows: 2,
+    $columns: 4,
+    $el-width: calc(270 / 1200 * 100%),
+    $el-height: calc(435 / 1200 * 100%)
+  );
+}

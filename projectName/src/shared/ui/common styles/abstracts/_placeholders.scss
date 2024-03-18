@@ -1,0 +1,36 @@
+%font-Inter {
+  font-family: 'Inter';
+}
+
+%font-Forum {
+  font-family: 'Forum';
+}
+
+%transition-basic {
+  transition: all 0.7s ease 0s;
+}
+
+%transition-transform {
+  transition: transform 0.7s ease 0s;
+}
+
+%transition-color {
+  transition: color 0.7s ease 0s;
+}
+
+%pointer-events-disable {
+  pointer-events: none;
+}
+
+%pointer-events-auto {
+  pointer-events: auto;
+}
+
+%reset-padding-margin {
+  padding: 0;
+  margin: 0;
+}
+
+%cursor-pointer {
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+$title-h1_desktop: 30px;
+$title-h2_desktop: 40px;
+$title-h3_desktop: 40px;
+$title-h4_desktop: 30px;
+$title-h5_desktop: 20px;
+
+$text-fsize-L: 20px;
+$text-fsize-S: 10px;
+
+:root {
+  --title-h1_desktop: #{$title-h1_desktop};
+  --title-h2_desktop: #{$title-h2_desktop};
+  --title-h3_desktop: #{$title-h3_desktop};
+  --title-h4_desktop: #{$title-h4_desktop};
+  --title-h5_desktop: #{$title-h5_desktop};
+
+  --text-fsize-L: #{$text-fsize-L};
+  --text-fsize-S: #{$text-fsize-S};
+}

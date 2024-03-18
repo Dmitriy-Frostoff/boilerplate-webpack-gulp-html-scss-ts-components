@@ -1,0 +1,35 @@
+.test-section {
+  // Position
+
+  // block-model
+  width: 100%;
+  max-width: $width-desktop;
+  min-height: 600px;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 62px;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.test-section__container {
+  // Position
+
+  // block-model
+  width: 100%;
+  min-height: 220px;
+  align-items: center;
+  padding: 35px 40px;
+  // Typography
+  text-align: center;
+  // Decoration
+  background: var(--color-dark);
+  // Animation
+
+  // Various
+}
