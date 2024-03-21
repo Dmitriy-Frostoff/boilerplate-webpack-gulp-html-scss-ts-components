@@ -203,7 +203,7 @@ But the best possible way for nowdays is to use appropriate to your goals archit
      More descriptions: contains the route components for each page in the app, mostly composition, hardly any logic.
      Within that application, let's consider a post card in a news feed. Simple words say: it's an entire ready page that contain `widgets` or `layers` below it in the hierarchy (**strictly** below ones!!!);
 
-     - `projectName/src/pages/index_gulp_include.html` - file that includes `@@include("path/to/html/file")` to be bundled than to a enormous `html bedsheet` => `index.html` (it lays next to `index_gulp_include.html` file). It's far sweet to edit chunks of html files (in `components`) than 'wade through the jungle' of `html bedsheet` as for me;
+  - `projectName/src/pages/index_gulp_include.html` - file that includes `@@include("path/to/html/file")` to be bundled than to a enormous `html bedsheet` => `index.html` (it lays next to `index_gulp_include.html` file). It's far sweet to edit chunks of html files (in `components`) than 'wade through the jungle' of `html bedsheet` as for me;
 
   - `projectName/src/pages/index.html` - described right above;
 
