@@ -1,27 +1,27 @@
-import path from "path";
+import path from 'path';
 const __dirname = import.meta.dirname;
 
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
+import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
 
-const mode = process.env.NODE_ENV || "development";
-const devMode = mode === "developmnet";
-const target = devMode ? "web" : "browserslist";
-const devtool = "source-map";
+const mode = process.env.NODE_ENV || 'development';
+const devMode = mode === 'developmnet';
+const target = devMode ? 'web' : 'browserslist';
+const devtool = 'source-map';
 
 export default {
   mode,
   target,
   devtool,
-  entry: [path.resolve(__dirname, "../../projectName/src/index.js")],
+  entry: [path.resolve(__dirname, '../../projectName/src/index.ts')],
   output: {
-    path: path.resolve(__dirname, "../../projectName/dist"),
+    path: path.resolve(__dirname, '../../projectName/dist'),
     clean: true,
-    filename: "[name].[contenthash:4].js",
+    filename: '[name].[contenthash:4].js',
     // assetModuleFilename: 'assets/[name][ext]',
-    publicPath: "",
+    publicPath: '',
     assetModuleFilename: (pathData) => {
       // pathData is object
       const filepathStartIndex = path
@@ -31,7 +31,7 @@ export default {
         // path.posix.sep === separator for path parts in current system
         .split(`${path.posix.sep}`)
         // desired folder for path start
-        .indexOf("src");
+        .indexOf('src');
 
       const filepath = path
         // pathData.filename is current full path from webpack.config.js
@@ -45,41 +45,41 @@ export default {
   },
   devServer: {
     port: 8080,
-    host: "localhost",
+    host: 'localhost',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(
         __dirname,
-        "../../projectName/src/pages/index.html"
+        '../../projectName/src/pages/index.html',
       ),
-      inject: "head",
+      inject: 'head',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash:4].css",
+      filename: '[name].[contenthash:4].css',
     }),
   ],
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
         options: {
-          configFile: path.resolve(__dirname, "../ts/tsconfig.json"),
+          configFile: path.resolve(__dirname, '../ts/tsconfig.json'),
         },
       },
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader',
       },
       {
         test: /\.(c|sc|sa)ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "resolve-url-loader",
+          'css-loader',
+          'resolve-url-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sourceMap: true,
             },
@@ -88,16 +88,16 @@ export default {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        type: "asset",
+        type: 'asset',
       },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   optimization: {
     minimizer: [
-      "...",
+      '...',
       new ImageMinimizerPlugin({
         minimizer: {
           implementation: ImageMinimizerPlugin.imageminMinify,
@@ -105,23 +105,23 @@ export default {
             // Lossless optimization with custom option
             // Feel free to experiment with options for better result for you
             plugins: [
-              ["gifsicle", { interlaced: true }],
-              ["jpegtran", { progressive: true }],
-              ["optipng", { optimizationLevel: 5 }],
+              ['gifsicle', { interlaced: true }],
+              ['jpegtran', { progressive: true }],
+              ['optipng', { optimizationLevel: 5 }],
               // Svgo configuration here https://github.com/svg/svgo#configuration
               [
-                "svgo",
+                'svgo',
                 {
                   plugins: [
                     {
-                      name: "preset-default",
+                      name: 'preset-default',
                       params: {
                         overrides: {
                           removeViewBox: false,
                           addAttributesToSVGElement: {
                             params: {
                               attributes: [
-                                { xmlns: "http://www.w3.org/2000/svg" },
+                                { xmlns: 'http://www.w3.org/2000/svg' },
                               ],
                             },
                           },

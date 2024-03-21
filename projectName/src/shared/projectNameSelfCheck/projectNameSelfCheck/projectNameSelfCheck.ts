@@ -5,8 +5,8 @@
  *
  */
 
-export default function logSelfCheck() {
-  const messageSelfCheck = `
+export default function logSelfCheck(): void {
+  const messageSelfCheck: string = `
   **ТЗ** 
 https://github.com/rolling-scopes-school/tasks/blob/master/tasks
 
