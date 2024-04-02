@@ -82,7 +82,16 @@ const config: Configuration = {
         test: /\.(c|sc|sa)ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                auto: true,
+                localIdentName: '[local]_[hash:base64:5]',
+              },
+              importLoaders: 2,
+            },
+          },
           'resolve-url-loader',
           {
             loader: 'sass-loader',

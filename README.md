@@ -11,7 +11,7 @@ It's a boilerplate for usage of `webpack 5+`, `gulp 4+`, `html`, `scss/css` and 
 ```ts
 export default {
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
 };
 ```
@@ -133,6 +133,10 @@ Also there's `base` folder with styles or classes that impact on entire boilerpl
 
 `layout` folder includes classes that forming `flex` or `grid` layout.
 
+Also it's possible to use `css-modules` via the `css-loader` (check the [css-loader](https://github.com/webpack-contrib/css-loader?tab=readme-ov-file#modules) for details). Read more about the `css-modules` usage at [css-modules](https://github.com/css-modules/css-modules?tab=readme-ov-file) and then just turn the `.(css|sass|scss)` extension of the file with styles into `.module.(css|scss|sass)`.
+
+So, there're possible usage of the global styles all over the project (common ui styles to prevent unnecessary classes multiplications) and locally scoped `*.module.(css|sass|scss)` styles for `segments`, `slices` or `layers` that contain component's unique data and are small and potentially can have classNames similarity problems all over the project.
+
 ---
 
 note: pay attention to order of the imported files in the `index.scss`! The last improts will override previous one if there's matches in classnames or ids or tags!
@@ -153,7 +157,7 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 - `configs/` - the folder includes config files for: gulp, webpack, TS packages. It's possible to add prettier/eslint/husky to the boilerplate from [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 
-**[FSD structure](https://feature-sliced.design/docs/get-started/overview 'FSD structure official docs')**  
+**[FSD structure](https://feature-sliced.design/docs/get-started/overview "FSD structure official docs")**  
 <a href="https://feature-sliced.design/docs/get-started/overview" target="_blank">  
  <img width="50%" height="50%" src="https://feature-sliced.design/assets/images/visual_schema-e826067f573946613dcdc76e3f585082.jpg" alt="Feature-Sliced Design Basics"/>
 </a>

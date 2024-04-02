@@ -1,2 +1,2 @@
-import indexHTML from "./index.html";
+import indexHTML from './index.html';
 export default indexHTML;
