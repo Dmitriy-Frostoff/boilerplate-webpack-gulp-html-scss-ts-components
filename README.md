@@ -6,7 +6,7 @@ It's a boilerplate for usage of `webpack 5+`, `gulp 4+`, `html`, `scss/css` and 
 
 ### !Important
 
-- While using modules always set an extension to the imported file's path! Even for `*.js`(`*.ts`) files! Or you'll get an exception and `webpack` will crash. Otherwise add the `resolve.extensions` to the `webpack.config.js` to solve this:
+- While using modules always set an extension to the imported file's path! Even for `*.js`(`*.ts`) files! Or you'll get an exception and `webpack` will crash. Otherwise add the `resolve.extensions` to the `webpack.config.ts` to solve this:
 
 ```ts
 export default {
@@ -22,13 +22,13 @@ export default {
 - don't forget to rename all the `<project_name>` or `projectName` names to desired one! Also check the following list of files, folders and linked things, to insure about the replacement:
   - `./projectName`;
   - `gulpfile.js` all the `src` and `dest` etc (path: `./configs/gulp/gulpfile.js`);
-  - `webpack.config.js` all the occurrences of `projectName` in the `entry`, `output` etc (path: `./configs/webpack/webpack.config.js`);
+  - `webpack.config.ts` all the occurrences of `projectName` in the `entry`, `output` etc (path: `./configs/webpack/webpack.config.ts`);
   - `index.ts` all the occurrences of `projectName` (path: `projectName/src/index.ts`);
   - `projectNameSelfCheck` and all subfolders and files inside (path: `projectName/src/shared/projectNameSelfCheck/index.ts`);
   - `_head.html` project `title` and `meta.content` (path: `projectName/src/widgets/head/_head.html`)
 - files with extension `.gitkeep` are only for adding `empty folders` to the staging area and for continious committing. Since the folder turn to be not empty you can for sure delete this files (they are for nothing but only for saving folder structure (check the link for more [what is .gitkeep for?](https://stackoverflow.com/questions/115983/how-do-i-add-an-empty-directory-to-a-git-repository)));
-- check `./configs/webpack/webpack.config.js` before usage using CLI command for no errors:
-  `npx webpack configtest [config-path]` so currently => `npx webpack configtest ./configs/webpack/webpack.config.js`
+- check `./configs/webpack/webpack.config.ts` before usage using CLI command for no errors:
+  `npx webpack configtest [config-path]` so currently => `NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' npx webpack configtest ./configs/webpack/webpack.config.ts`
 
 ---
 
@@ -101,10 +101,12 @@ Also there's a helper functions to deal with files when they are renamed with ad
 
 `webpack` uses:
 
+- `cross-env` - to set the `Node.js`'s `NODE_ENV` and `NODE_OPTIONS` for scripts in the boilerplate;
 - `typescript` - to add and to use TypeScript in the boilerplate;
+- `tsx` - is a CLI command (alternative to node) for seamlessly running TypeScript & ESM in both commonjs & module package types in the boilerplate (it's a wrapper around the `Node.js`);
 - `ts-loader` - for ability to use `.ts` (`.tsx`) files;
-- `html-loader` for ability to load `.html` files into `*.js` one;
-- `html-webpack-plugin` to nest final `script.js` file (currently to the `head` of html file. Check `inject: 'head'` option in the `./configs/webpack/webpack.config.js` HtmlWebpackPlugin options) and final `main.css` styles file to the final html template.
+- `html-loader` for ability to load `.html` files into `*.ts` one;
+- `html-webpack-plugin` to nest final `script.js` file (currently to the `head` of html file. Check `inject: 'head'` option in the `./configs/webpack/webpack.config.ts` HtmlWebpackPlugin options) and final `main.css` styles file to the final html template.
 - `image-minimizer-webpack-plugin`, `imagemin`, `imagemin-gifsicle`, `imagemin-jpegtran`, `imagemin-optipng`, `imagemin-svgo` - a fable things to reduce size of the image resources with lossless quality optimization (can be changed, use offical docs for more);
 - `mini-css-extract-plugin` - to bundle final external css file;
 - `resolve-url-loader` - loader for Sass to ease assets pathes' setting relying on current file but not to the output one (note: `sourceMap: true` in the `sass-loader` options is lifeworth required for working the plugin!!!);
@@ -215,7 +217,9 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 - `projectName/dist/` - output bundle of a project;
 - `.browserslistrc` - file with settings for webpack about prior browsers to traspile app data in order with the settings;
-- .`gitignore` - exlude node_modules from git watching and more settings (check out the file);
+- `.editorconfig` - the project common settings (as for now it's as in RSSchool recommended check the [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) for more.  
+  **notice**: `EditorConfig` IDE extension required!);
+- `.gitignore` - exlude node_modules from git watching and more settings (check out the file);
 - `LICENSE` - license file;
 - `package.json` - the heart of all.
   Check the scripts (especially, the pathes for webpack and gulp configs. Currently: `'./configs/...'`). Scripts already have CLI prefixes to link with config and ignore files;
@@ -241,18 +245,21 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 
 #### TypeScript
 
-- [The official website of the TypeScript](https://www.typescriptlang.org/)
-- [The official github of the TypeScript](https://github.com/microsoft/TypeScript)
-- [Webpack.js.org TypeScript guide](https://webpack.js.org/guides/typescript/)
-- [The official github of the TypeScript loader for webpack](https://github.com/TypeStrong/ts-loader)
-- [TypeScript loader for webpack at npmjs.com](https://www.npmjs.com/package/ts-loader)
-- [About the TypeScript config options](https://www.typescriptlang.org/tsconfig)
-- [About the TypeScript tsc CLI Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
-- [Typescript-d-ts-file-not-recognized](https://stackoverflow.com/questions/59728371/typescript-d-ts-file-not-recognized)
-- [Typescript error when trying to import an html file](https://stackoverflow.com/questions/73225943/typescript-error-when-trying-to-import-an-html-file)
-- [Typescript: .d.ts file not recognized](https://stackoverflow.com/questions/59728371/typescript-d-ts-file-not-recognized)
-- [How to configure custom global interfaces (.d.ts files) for TypeScript?](https://stackoverflow.com/questions/42233987/how-to-configure-custom-global-interfaces-d-ts-files-for-typescript)
-- [How to import CSS modules with Typescript, React and Webpack](https://stackoverflow.com/questions/41336858/how-to-import-css-modules-with-typescript-react-and-webpack)
+- [The official website of the TypeScript](https://www.typescriptlang.org/);
+- [The official github of the TypeScript](https://github.com/microsoft/TypeScript);
+- [Webpack.js.org TypeScript guide](https://webpack.js.org/guides/typescript/);
+- [The official github of the TypeScript loader for webpack](https://github.com/TypeStrong/ts-loader);
+- [TypeScript loader for webpack at npmjs.com](https://www.npmjs.com/package/ts-loader);
+- [About the TypeScript config options](https://www.typescriptlang.org/tsconfig);
+- [About the TypeScript tsc CLI Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html);
+- [Typescript-d-ts-file-not-recognized](https://stackoverflow.com/questions/59728371/typescript-d-ts-file-not-recognized);
+- [Typescript error when trying to import an html file](https://stackoverflow.com/questions/73225943/typescript-error-when-trying-to-import-an-html-file);
+- [Typescript: .d.ts file not recognized](https://stackoverflow.com/questions/59728371/typescript-d-ts-file-not-recognized);
+- [How to configure custom global interfaces (.d.ts files) for TypeScript?](https://stackoverflow.com/questions/42233987/how-to-configure-custom-global-interfaces-d-ts-files-for-typescript);
+- [How to import CSS modules with Typescript, React and Webpack](https://stackoverflow.com/questions/41336858/how-to-import-css-modules-with-typescript-react-and-webpack);
+- [The official GitHub of the `tsx` package](https://github.com/privatenumber/tsx);
+- [TypeScript Execute (tsx): Node.js enhanced to run TypeScript & ESM files page at the npmjs.com](https://www.npmjs.com/package/tsx);
+- [VueJS, Typescript and VSCode - "Relative import paths need explicit file extensions in EcmaScript imports..."](https://stackoverflow.com/questions/76746153/vuejs-typescript-and-vscode-relative-import-paths-need-explicit-file-extensi);
 
 ---
 
@@ -273,6 +280,9 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official github repo of webpack](https://github.com/webpack/webpack);
 - [The official docs of Webpack: Concepts](https://webpack.js.org/concepts/);
 - [The official docs of Webpack: Command Line Interface](https://webpack.js.org/api/cli);
+- [Configuration Languages](https://webpack.js.org/configuration/configuration-languages/#typescript);
+- [TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for ./webpack.config.ts](https://webpack.js.org/api/cli/#typeerror-err_unknown_file_extension-unknown-file-extension-ts-for-webpackconfigts);
+- [ESM in webpack.config.ts isn't supported if ts-node outputs ESM #2458](https://github.com/webpack/webpack-cli/issues/2458);
 - [A mostly complete guide to webpack 5 (2020) by Valentino Gagliardi](https://www.valentinog.com/blog/webpack/)  
   (note: a little bit outdated. There's a CMJ webpack config was used, but never the less is far usefull!!!);
 - [How to transpile ES modules with webpack and Node.js, Dec 15, 2021 by Alexander Nnakwue](https://blog.logrocket.com/transpile-es-modules-with-webpack-node-js/);
@@ -301,6 +311,14 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official github repo of imagemin-jpegtran](https://github.com/imagemin/imagemin-jpegtran);
 - [Official github repo of imagemin-optipng](https://github.com/imagemin/imagemin-optipng);
 - [Official github repo of imagemin-svgo](https://github.com/imagemin/imagemin-svgo);
+- [Official github repo of cross-env](https://www.npmjs.com/package/cross-env);
+- [Official page of cross-env at npmjs.com](https://www.npmjs.com/package/cross-env);
+- [Official github repo of cross-env](https://github.com/kentcdodds/cross-env);
+- [Official website of ts-node](https://typestrong.org/ts-node/);
+- [Official page of ts-node at npmjs.com](https://www.npmjs.com/package/ts-node);
+- [Official github repo of ts-node](https://github.com/TypeStrong/ts-node);
+- [Unable to import ESM .ts module in node](https://stackoverflow.com/questions/63742790/unable-to-import-esm-ts-module-in-node);
+- [Can't run my Node.js Typescript project TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /app/src/App.ts](https://stackoverflow.com/questions/62096269/cant-run-my-node-js-typescript-project-typeerror-err-unknown-file-extension/76343394#76343394);
 
 ---
 
@@ -323,4 +341,4 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official node.js docs: \_\_dirname](https://nodejs.org/docs/latest/api/modules.html#__dirname);
 - [Official node.js docs: \_\_filename](https://nodejs.org/docs/latest/api/modules.html#__filename);
 
-#### done: March 21, 2024
+#### done: April 02, 2024

@@ -1,17 +1,23 @@
 import path from 'path';
-const __dirname = import.meta.dirname;
+// const __dirname = import.meta.dirname;
+
+import { Configuration, PathData } from 'webpack';
+import 'webpack-dev-server';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
 
-const mode = process.env.NODE_ENV || 'development';
-const devMode = mode === 'developmnet';
-const target = devMode ? 'web' : 'browserslist';
+const mode: 'none' | 'development' | 'production' =
+  process.env.NODE_ENV === 'development'
+    ? 'development'
+    : (process.env.NODE_ENV as 'none' | 'development' | 'production');
+const devMode: boolean = mode === 'development';
+const target: 'web' | 'browserslist' = devMode ? 'web' : 'browserslist';
 const devtool = 'source-map';
 
-export default {
+const config: Configuration = {
   mode,
   target,
   devtool,
@@ -22,20 +28,20 @@ export default {
     filename: '[name].[contenthash:4].js',
     // assetModuleFilename: 'assets/[name][ext]',
     publicPath: '',
-    assetModuleFilename: (pathData) => {
+    assetModuleFilename: (pathData: PathData): string => {
       // pathData is object
-      const filepathStartIndex = path
+      const filepathStartIndex: number = path
         // path is object
         // path.dirname('folder1/folder2/image.png') => folder1/folder2;
-        .dirname(pathData.filename)
+        .dirname(pathData.filename ? pathData.filename : '')
         // path.posix.sep === separator for path parts in current system
         .split(`${path.posix.sep}`)
         // desired folder for path start
         .indexOf('src');
 
-      const filepath = path
+      const filepath: string = path
         // pathData.filename is current full path from webpack.config.js
-        .dirname(pathData.filename)
+        .dirname(pathData.filename ? pathData.filename : '')
         // path.posix.sep === / in windows
         .split(`${path.posix.sep}`)
         .slice(filepathStartIndex)
@@ -138,3 +144,5 @@ export default {
     ],
   },
 };
+
+export default config;
