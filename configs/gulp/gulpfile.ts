@@ -5,7 +5,7 @@ import replace from 'gulp-replace';
 import rename from 'gulp-rename';
 
 export function html() {
-  return src('../../projectName/src/pages/index_gulp_include.html')
+  return src('projectName/src/pages/index_gulp_include.html', { cwd: '../../' })
     .pipe(
       include({
         prefix: '@@',

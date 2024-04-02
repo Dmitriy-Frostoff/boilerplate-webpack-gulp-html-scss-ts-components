@@ -5,8 +5,8 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "html+dev": "gulp --gulpfile ./configs/gulp/gulpfile.js html && webpack --config ./configs/webpack/webpack.config.ts --progress",
-    "html": "gulp --gulpfile ./configs/gulp/gulpfile.js html --progress",
+    "html+dev": "cross-env NODE_OPTIONS='--import=tsx' gulp --gulpfile ./configs/gulp/gulpfile.ts html && cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack --config ./configs/webpack/webpack.config.ts --node-env=development --progress",
+    "html": "cross-env NODE_OPTIONS='--import=tsx' gulp --gulpfile ./configs/gulp/gulpfile.ts html --progress",
     "start": "cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack-dev-server --config ./configs/webpack/webpack.config.ts --node-env=development --progress",
     "dev": "cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack --config ./configs/webpack/webpack.config.ts --node-env=development --progress",
     "build": "cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack --config ./configs/webpack/webpack.config.ts --node-env=production --progress"
@@ -31,10 +31,13 @@
   },
   "homepage": "https://github.com/Dmitriy-Frostoff/boilerplate-webpack-gulp-html-scss-ts-components#readme",
   "devDependencies": {
+    "@types/gulp": "^4.0.17",
+    "@types/gulp-file-include": "^0.14.8",
+    "@types/gulp-rename": "^2.0.6",
     "cross-env": "^7.0.3",
     "css-loader": "^6.10.0",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
     "gulp-file-include": "^2.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.4",

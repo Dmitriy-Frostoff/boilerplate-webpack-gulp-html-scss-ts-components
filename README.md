@@ -1,6 +1,6 @@
 # boilerplate-webpack-gulp-html-scss-ts-components
 
-It's a boilerplate for usage of `webpack 5+`, `gulp 4+`, `html`, `scss/css` and `ts`. (everything of that is meant to be `components` and `webpack` + `gulp` are for bundling and connecting parts together) in a future project. Check out the docs below to be in `actual tune`!
+It's a boilerplate for usage of `webpack 5+`, `gulp 5+`, `html`, `scss/css` and `ts`. (everything of that is meant to be `components` and `webpack` + `gulp` are for bundling and connecting parts together) in a future project. Check out the docs below to be in `actual tune`!
 
 ---
 
@@ -11,7 +11,7 @@ It's a boilerplate for usage of `webpack 5+`, `gulp 4+`, `html`, `scss/css` and 
 ```ts
 export default {
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 };
 ```
@@ -21,7 +21,7 @@ export default {
 - Before usage - update packages and dependency versions (instruction below), than run script for build (to test for errors) (e,g, `npm run build`). Otherwise cure the exceptions(((
 - don't forget to rename all the `<project_name>` or `projectName` names to desired one! Also check the following list of files, folders and linked things, to insure about the replacement:
   - `./projectName`;
-  - `gulpfile.js` all the `src` and `dest` etc (path: `./configs/gulp/gulpfile.js`);
+  - `gulpfile.ts` all the `src` and `dest` etc (path: `./configs/gulp/gulpfile.ts`);
   - `webpack.config.ts` all the occurrences of `projectName` in the `entry`, `output` etc (path: `./configs/webpack/webpack.config.ts`);
   - `index.ts` all the occurrences of `projectName` (path: `projectName/src/index.ts`);
   - `projectNameSelfCheck` and all subfolders and files inside (path: `projectName/src/shared/projectNameSelfCheck/index.ts`);
@@ -84,11 +84,12 @@ The boilerplate is created to use `TypeScript` primary. There's a `TS` config fi
 
 `gulp` is turned to bundle multiple html components into the one `index_gulp_include.html` (path: `<project_name>/src/pages/index_gulp_include.html`).
 Also `gulp` replace html chunkes' inner assets' pathes to be valid to output `index_gulp_include.html` file and then copy and rename it to `index.html` (output `index.html` file path: `<project_name>/src/pages/index.html`).
-(check out the `./configs/gulp/gulpfile.js` file for details);
+(check out the `./configs/gulp/gulpfile.ts` file for details);
 
 `gulp` uses:
 
-- `gulp-file-include` package to include (using keyword `@@include("path/to/file.html")`) html parts from other html files. Indents are matter! Check the `indent: true` property in the `./configs/gulp/gulpfile.js`;
+- `@types/gulp`, `@types/gulp-file-include`, `@types/gulp-rename` - type declarations for `TypeScript` usage;
+- `gulp-file-include` package to include (using keyword `@@include("path/to/file.html")`) html parts from other html files. Indents are matter! Check the `indent: true` property in the `./configs/gulp/gulpfile.ts`;
 - `gulp-rename` package to copy `index_gulp_include.html` and rename it to `index.html`;
 - `gulp-replace` package to change assets pathes inside html parts to be relative to `index_gulp_include.html`.
 
@@ -139,7 +140,7 @@ So, there're possible usage of the global styles all over the project (common ui
 
 ---
 
-note: pay attention to order of the imported files in the `index.scss`! The last improts will override previous one if there's matches in classnames or ids or tags!
+**note**: pay attention to order of the imported files in the `index.scss`! The last improts will override previous one if there's matches in classnames or ids or tags!
 
 ---
 
@@ -157,7 +158,7 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 - `configs/` - the folder includes config files for: gulp, webpack, TS packages. It's possible to add prettier/eslint/husky to the boilerplate from [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 
-**[FSD structure](https://feature-sliced.design/docs/get-started/overview "FSD structure official docs")**  
+**[FSD structure](https://feature-sliced.design/docs/get-started/overview 'FSD structure official docs')**  
 <a href="https://feature-sliced.design/docs/get-started/overview" target="_blank">  
  <img width="50%" height="50%" src="https://feature-sliced.design/assets/images/visual_schema-e826067f573946613dcdc76e3f585082.jpg" alt="Feature-Sliced Design Basics"/>
 </a>
@@ -275,6 +276,9 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official github repo of gulp-file-include package](https://github.com/haoxins/gulp-file-include);
 - [Official github repo of gulp-rename package](https://github.com/hparra/gulp-rename);
 - [Official github repo of gulp-replace package](https://github.com/lazd/gulp-replace);
+- [Official page of @types/gulp package at npmjs.com](https://www.npmjs.com/package/@types/gulp);
+- [Official page of @types/gulp-file-include package at npmjs.com](https://www.npmjs.com/package/gulp-file-include);
+- [Official page of @types/gulp-rename package at npmjs.com](https://www.npmjs.com/package/@types/gulp-rename);
 
 ---
 
@@ -345,4 +349,4 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official node.js docs: \_\_dirname](https://nodejs.org/docs/latest/api/modules.html#__dirname);
 - [Official node.js docs: \_\_filename](https://nodejs.org/docs/latest/api/modules.html#__filename);
 
-#### done: April 02, 2024
+#### done: April 03, 2024
