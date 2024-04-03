@@ -21,6 +21,7 @@
     "html",
     "scss",
     "css",
+    "css-modules",
     "ts",
     "components"
   ],

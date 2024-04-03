@@ -11,7 +11,7 @@ It's a boilerplate for usage of `webpack 5+`, `gulp 5+`, `html`, `scss/css` and 
 ```ts
 export default {
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
 };
 ```
@@ -39,10 +39,10 @@ export default {
 To check the outdated packages:  
 `npm outdated`
 
-To update all the outdated packages (note: this command do not update devDependencies in the `package.json` !):  
+To update all the outdated packages (**note**: this command do not update devDependencies in the `package.json` !):  
 `npm update`
 
-To update one `package` (note: this command do not update devDependency in the `package.json` !):  
+To update one `package` (**note**: this command do not update devDependency in the `package.json` !):  
 `npm update <package_name>`
 
 To update all the outdated packages and refresh all devDependencies in the `package.json`:  
@@ -60,7 +60,7 @@ than will install them. (check the [How can I update each dependency in package.
 
 To delete an unnecessary `package` use the following command ([official npm Docs](https://docs.npmjs.com/uninstalling-packages-and-dependencies)):  
 `npm uninstall <package_name>`  
-Note: don't forget to check `scripts` in the `package.json` to delete unnecessary one.
+**note**: don't forget to check `scripts` in the `package.json` to delete unnecessary one.
 
 The boilerplate is set to use ECMAScript modules (ESM) (see the `package.json` => `{"type": "module"}`);
 
@@ -110,7 +110,7 @@ Also there's a helper functions to deal with files when they are renamed with ad
 - `html-webpack-plugin` to nest final `script.js` file (currently to the `head` of html file. Check `inject: 'head'` option in the `./configs/webpack/webpack.config.ts` HtmlWebpackPlugin options) and final `main.css` styles file to the final html template.
 - `image-minimizer-webpack-plugin`, `imagemin`, `imagemin-gifsicle`, `imagemin-jpegtran`, `imagemin-optipng`, `imagemin-svgo` - a fable things to reduce size of the image resources with lossless quality optimization (can be changed, use offical docs for more);
 - `mini-css-extract-plugin` - to bundle final external css file;
-- `resolve-url-loader` - loader for Sass to ease assets pathes' setting relying on current file but not to the output one (note: `sourceMap: true` in the `sass-loader` options is lifeworth required for working the plugin!!!);
+- `resolve-url-loader` - loader for Sass to ease assets pathes' setting relying on current file but not to the output one (**note**: `sourceMap: true` in the `sass-loader` options is lifeworth required for working the plugin!!!);
 - `sass` - for using all SCSS / Sass features;
 - `sass-loader` - loader for ability to read and use `.scss` / `.sass` files inside `*.ts` one;
 
@@ -158,7 +158,7 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 - `configs/` - the folder includes config files for: gulp, webpack, TS packages. It's possible to add prettier/eslint/husky to the boilerplate from [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 
-**[FSD structure](https://feature-sliced.design/docs/get-started/overview 'FSD structure official docs')**  
+**[FSD structure](https://feature-sliced.design/docs/get-started/overview "FSD structure official docs")**  
 <a href="https://feature-sliced.design/docs/get-started/overview" target="_blank">  
  <img width="50%" height="50%" src="https://feature-sliced.design/assets/images/visual_schema-e826067f573946613dcdc76e3f585082.jpg" alt="Feature-Sliced Design Basics"/>
 </a>
@@ -292,7 +292,7 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for ./webpack.config.ts](https://webpack.js.org/api/cli/#typeerror-err_unknown_file_extension-unknown-file-extension-ts-for-webpackconfigts);
 - [ESM in webpack.config.ts isn't supported if ts-node outputs ESM #2458](https://github.com/webpack/webpack-cli/issues/2458);
 - [A mostly complete guide to webpack 5 (2020) by Valentino Gagliardi](https://www.valentinog.com/blog/webpack/)  
-  (note: a little bit outdated. There's a CMJ webpack config was used, but never the less is far usefull!!!);
+  (**note**: a little bit outdated. There's a CMJ webpack config was used, but never the less is far usefull!!!);
 - [How to transpile ES modules with webpack and Node.js, Dec 15, 2021 by Alexander Nnakwue](https://blog.logrocket.com/transpile-es-modules-with-webpack-node-js/);
 - [Stackoverflow.com answers about dealling with ES modules and '\_\_dirname' in node.js](https://stackoverflow.com/questions/46745014/alternative-for-dirname-in-node-js-when-using-es6-modules);
 - [Official github repo of webpack-cli](https://github.com/webpack/webpack-cli);
