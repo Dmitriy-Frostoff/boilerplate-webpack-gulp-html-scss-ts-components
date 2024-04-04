@@ -11,7 +11,7 @@ It's a boilerplate for usage of `webpack 5+`, `gulp 5+`, `html`, `scss/css` and 
 ```ts
 export default {
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 };
 ```
@@ -138,6 +138,9 @@ Also it's possible to use `css-modules` via the `css-loader` (check the [css-loa
 
 So, there're possible usage of the global styles all over the project (common ui styles to prevent unnecessary classes multiplications) and locally scoped `*.module.(css|sass|scss)` styles for `segments`, `slices` or `layers` that contain component's unique data and are small and potentially can have classNames similarity problems all over the project.
 
+Long story short say all the `.(css|scss|sass)` files are handled as `global` (normal) CSS, and `.module.(css|scss|sass)`
+are `css-modules` with `local` scope.
+
 ---
 
 **note**: pay attention to order of the imported files in the `index.scss`! The last improts will override previous one if there's matches in classnames or ids or tags!
@@ -158,7 +161,7 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 - `configs/` - the folder includes config files for: gulp, webpack, TS packages. It's possible to add prettier/eslint/husky to the boilerplate from [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 
-**[FSD structure](https://feature-sliced.design/docs/get-started/overview "FSD structure official docs")**  
+**[FSD structure](https://feature-sliced.design/docs/get-started/overview 'FSD structure official docs')**  
 <a href="https://feature-sliced.design/docs/get-started/overview" target="_blank">  
  <img width="50%" height="50%" src="https://feature-sliced.design/assets/images/visual_schema-e826067f573946613dcdc76e3f585082.jpg" alt="Feature-Sliced Design Basics"/>
 </a>
@@ -230,6 +233,43 @@ But the best possible way for nowdays is to use appropriate to your goals archit
   Check the scripts (especially, the pathes for webpack and gulp configs. Currently: `'./configs/...'`). Scripts already have CLI prefixes to link with config and ignore files;
 
 [Also useful link(RU) about the FSD architecture with clear definition and examples by @IrkaTyman](https://habr.com/ru/articles/795823/);
+
+**Important!** If you tend only to transfer module to upper hierarchy one (e.g. `index.scss` from the `app` layer to the main `index.ts`) do the following steps:
+
+```ts
+// projectName/src/app/index.ts
+import './index.scss';
+```
+
+than
+
+```ts
+// projectName/src/index.ts
+import './app/index.ts';
+```
+
+to clarify the `Webpack` to handle it correctly.
+
+If there's a need to use imported as a data (e.g. import `.html` file to handle it as a string) step the following:
+
+```ts
+// projectName/src/app/index.ts
+import anyNameYouWish from '../pages/index.html';
+export { anyNameYouWish };
+```
+
+than
+
+```ts
+// projectName/src/index.ts
+import './app/index.ts'; /*e.g. to import index.scss from example above (to demand Webpack load global styles)
+this is only to show, that it possible to use import 'entireModule' and import {something} from 'entireModule'
+*/
+import { anyNameYouWish } from './app/index.ts';
+```
+
+If there're files like `chunk.abc5d.(css|ts|anyExt)` in the `dist` folder so take care of correctness of usage
+dynamic `import()`s because exactly it usage (that is `async` naturally) trigger Webpack to emit `fileChunks` [read more here](https://github.com/webpack/webpack/issues/12464).
 
 With the new `packages` releases, the ones above can turn to pumpkin, so check'em out with official docs!!!
 
@@ -327,6 +367,7 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official github repo of ts-node](https://github.com/TypeStrong/ts-node);
 - [Unable to import ESM .ts module in node](https://stackoverflow.com/questions/63742790/unable-to-import-esm-ts-module-in-node);
 - [Can't run my Node.js Typescript project TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /app/src/App.ts](https://stackoverflow.com/questions/62096269/cant-run-my-node-js-typescript-project-typeerror-err-unknown-file-extension/76343394#76343394);
+- [Webpack 5 creates chunks even though maxChunks set to 1 only with 2 JS entry points](https://github.com/webpack/webpack/issues/12464#issuecomment-766727668);
 
 ---
 
@@ -349,4 +390,4 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official node.js docs: \_\_dirname](https://nodejs.org/docs/latest/api/modules.html#__dirname);
 - [Official node.js docs: \_\_filename](https://nodejs.org/docs/latest/api/modules.html#__filename);
 
-#### done: April 03, 2024
+#### done: April 04, 2024

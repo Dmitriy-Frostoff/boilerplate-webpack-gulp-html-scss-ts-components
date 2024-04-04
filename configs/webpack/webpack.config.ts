@@ -26,6 +26,7 @@ const config: Configuration = {
     path: path.resolve(__dirname, '../../projectName/dist'),
     clean: true,
     filename: '[name].[contenthash:4].js',
+    chunkFilename: 'chunk.[contenthash:4].js',
     // assetModuleFilename: 'assets/[name][ext]',
     publicPath: '',
     assetModuleFilename: (pathData: PathData): string => {
@@ -63,6 +64,7 @@ const config: Configuration = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:4].css',
+      chunkFilename: 'chunk.[contenthash:4].css',
     }),
   ],
   module: {
@@ -87,7 +89,7 @@ const config: Configuration = {
             options: {
               modules: {
                 auto: true,
-                localIdentName: '[local]_[hash:base64:5]',
+                localIdentName: '[name]_[hash:base64:5]',
               },
               importLoaders: 2,
             },
@@ -100,6 +102,22 @@ const config: Configuration = {
             },
           },
         ],
+        include: /\.module\.(c|sc|sa)ss$/i,
+      },
+      {
+        test: /\.(c|sc|sa)ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+        exclude: /\.module\.(c|sc|sa)ss$/i,
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
