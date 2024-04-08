@@ -11,7 +11,7 @@ It's a boilerplate for usage of `webpack 5+`, `gulp 5+`, `html`, `scss/css` and 
 ```ts
 export default {
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
 };
 ```
@@ -161,7 +161,7 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 - `configs/` - the folder includes config files for: gulp, webpack, TS packages. It's possible to add prettier/eslint/husky to the boilerplate from [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 
-**[FSD structure](https://feature-sliced.design/docs/get-started/overview 'FSD structure official docs')**  
+**[FSD structure](https://feature-sliced.design/docs/get-started/overview "FSD structure official docs")**  
 <a href="https://feature-sliced.design/docs/get-started/overview" target="_blank">  
  <img width="50%" height="50%" src="https://feature-sliced.design/assets/images/visual_schema-e826067f573946613dcdc76e3f585082.jpg" alt="Feature-Sliced Design Basics"/>
 </a>
@@ -238,14 +238,14 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 ```ts
 // projectName/src/app/index.ts
-import './index.scss';
+import "./index.scss";
 ```
 
 than
 
 ```ts
 // projectName/src/index.ts
-import './app/index.ts';
+import "./app/index.ts";
 ```
 
 to clarify the `Webpack` to handle it correctly.
@@ -254,7 +254,7 @@ If there's a need to use imported as a data (e.g. import `.html` file to handle 
 
 ```ts
 // projectName/src/app/index.ts
-import anyNameYouWish from '../pages/index.html';
+import anyNameYouWish from "../pages/index.html";
 export { anyNameYouWish };
 ```
 
@@ -262,10 +262,10 @@ than
 
 ```ts
 // projectName/src/index.ts
-import './app/index.ts'; /*e.g. to import index.scss from example above (to demand Webpack load global styles)
+import "./app/index.ts"; /*e.g. to import index.scss from example above (to demand Webpack load global styles)
 this is only to show, that it possible to use import 'entireModule' and import {something} from 'entireModule'
 */
-import { anyNameYouWish } from './app/index.ts';
+import { anyNameYouWish } from "./app/index.ts";
 ```
 
 If there're files like `chunk.abc5d.(css|ts|anyExt)` in the `dist` folder so take care of correctness of usage
@@ -359,7 +359,6 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official github repo of imagemin-jpegtran](https://github.com/imagemin/imagemin-jpegtran);
 - [Official github repo of imagemin-optipng](https://github.com/imagemin/imagemin-optipng);
 - [Official github repo of imagemin-svgo](https://github.com/imagemin/imagemin-svgo);
-- [Official github repo of cross-env](https://www.npmjs.com/package/cross-env);
 - [Official page of cross-env at npmjs.com](https://www.npmjs.com/package/cross-env);
 - [Official github repo of cross-env](https://github.com/kentcdodds/cross-env);
 - [Official website of ts-node](https://typestrong.org/ts-node/);
