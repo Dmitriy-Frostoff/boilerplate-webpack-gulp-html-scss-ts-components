@@ -271,6 +271,35 @@ import { anyNameYouWish } from "./app/index.ts";
 If there're files like `chunk.abc5d.(css|ts|anyExt)` in the `dist` folder so take care of correctness of usage
 dynamic `import()`s because exactly it usage (that is `async` naturally) trigger Webpack to emit `fileChunks` [read more here](https://github.com/webpack/webpack/issues/12464).
 
+### Integration with [`Connections`](#Connections) links:
+
+To integrate the boilerplate do the following steps (**note**: copy the project structure as is!!!):
+
+- add the following lines to the `package.json`:
+
+```json
+...
+"type": "module",
+"scripts": {
+  "html+dev": "cross-env NODE_OPTIONS='--import=tsx' gulp --gulpfile ./configs/gulp/gulpfile.ts html && cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack --config ./configs/webpack/webpack.config.ts --node-env=development --progress",
+  "html": "cross-env NODE_OPTIONS='--import=tsx' gulp --gulpfile ./configs/gulp/gulpfile.ts html --progress",
+  "start": "cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack-dev-server --config ./configs/webpack/webpack.config.ts --node-env=development --progress",
+  "dev": "cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack --config ./configs/webpack/webpack.config.ts --node-env=development --progress",
+  "build": "cross-env NODE_OPTIONS='--import=tsx' TSX_TSCONFIG_PATH='./configs/ts/tsconfig.json' webpack --config ./configs/webpack/webpack.config.ts --node-env=production --progress"
+},
+...
+```
+
+- copy the `configs`, `projectName`, `.browserslistrc`, `.editorconfig`, `.gitignore` (optionally);
+
+- install current packages as `devDependencies` via bash command below:
+
+```bash
+npm i -D @types/gulp @types/gulp-file-include @types/gulp-rename cross-env css-loader gulp gulp-cli gulp-file-include gulp-rename gulp-replace html-loader html-webpack-plugin image-minimizer-webpack-plugin imagemin imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo mini-css-extract-plugin resolve-url-loader sass sass-loader ts-loader tsx typescript webpack webpack-cli webpack-dev-server
+```
+
+- do all the steps from the top of the document's [# !Important](#!Important) (i.e. rename `projectName`, delete unnecessary files);
+
 With the new `packages` releases, the ones above can turn to pumpkin, so check'em out with official docs!!!
 
 ### Links:
@@ -389,4 +418,9 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official node.js docs: \_\_dirname](https://nodejs.org/docs/latest/api/modules.html#__dirname);
 - [Official node.js docs: \_\_filename](https://nodejs.org/docs/latest/api/modules.html#__filename);
 
-#### done: April 04, 2024
+#### Connections:
+
+- [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
+- [boilerplate-jest](https://github.com/Dmitriy-Frostoff/boilerplate-jest);
+
+#### done: April 11, 2024
