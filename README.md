@@ -124,7 +124,7 @@ Also there's a helper functions to deal with files when they are renamed with ad
 - `constants` (path: `projectName/src/shared/ui/common styles/abstracts/_constants.scss`),
 - `mixins` (path: `projectName/src/shared/ui/common styles/abstracts/_mixins.scss`),
 - `placeholders` (path: `projectName/src/shared/ui/common styles/abstracts/_placeholders.scss`).
-  You can check them for benefits or delete otherwise (also check `index.scss` file `projectName/src/app/index.scss` to delete unused anymore scss files!).
+  You can check them for benefits or delete otherwise (also check `index.scss` file `projectName/src/app/styles/index.scss` to delete unused anymore scss files!).
 
 Also there's `base` folder with styles or classes that impact on entire boilerplate layout view and includes `Blocks` (BEM methodology). There're
 
@@ -159,7 +159,7 @@ But the best possible way for nowdays is to use appropriate to your goals archit
 
 ### The boilerplate structure and brief descriptions:
 
-- `configs/` - the folder includes config files for: gulp, webpack, TS packages. It's possible to add prettier/eslint/husky to the boilerplate from [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
+- `configs/` - the folder includes config files for: `gulp`, `webpack`, `TypeScript` packages. It's possible to add `prettier/eslint/husky` to the boilerplate from [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 
 **[FSD structure](https://feature-sliced.design/docs/get-started/overview "FSD structure official docs")**  
 <a href="https://feature-sliced.design/docs/get-started/overview" target="_blank">  
