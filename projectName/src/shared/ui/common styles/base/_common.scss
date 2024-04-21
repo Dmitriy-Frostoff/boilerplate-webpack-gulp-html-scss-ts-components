@@ -64,6 +64,35 @@ body {
   }
 }
 
+#root {
+  // Position
+
+  // block-model
+  width: 100%;
+  min-height: 100vh;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
+.root__container {
+  // Position
+
+  // block-model
+  justify-content: center;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+}
+
 .link {
   // Position
 
@@ -400,7 +429,8 @@ img {
   // Position
 
   // block-model
-
+  width: 100%;
+  justify-content: center;
   // Typography
 
   // Decoration
