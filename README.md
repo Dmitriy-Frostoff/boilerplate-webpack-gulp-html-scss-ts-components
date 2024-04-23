@@ -66,7 +66,7 @@ The boilerplate is set to use ECMAScript modules (ESM) (see the `package.json` =
 
 #### TypeScript
 
-The boilerplate is created to use `TypeScript` primary. There's a `TS` config file (`configs/ts/tsconfig.json`) and types declaration for `TS` (`configs/ts/global.d.ts`) to handle imported assets files (e.g. `.svg`, `.html`, `scss`, `css` etc).
+The boilerplate is created to use `TypeScript` primary. There's a `TS` config file (`configs/ts/tsconfig.json`) and types declaration for `TS` (`configs/ts/global.d.ts`) to handle imported assets files (e.g. `.svg`, `.html`, `.scss`, `.css` etc).
 
 **The common struture of the `tsconfig.json` is**
 
@@ -423,4 +423,4 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 - [boilerplate-jest](https://github.com/Dmitriy-Frostoff/boilerplate-jest);
 
-#### done: April 21, 2024
+#### done: April 24, 2024
