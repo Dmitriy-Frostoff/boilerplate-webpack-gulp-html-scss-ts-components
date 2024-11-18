@@ -1,3 +1,6 @@
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
 * {
   // Position
 
@@ -47,7 +50,7 @@ body {
   // Various
 }
 
-@include media-tablet-minus1px {
+@include mixins.media-tablet-minus1px {
   .body_scroll-lock {
     /* Position */
 
@@ -83,7 +86,7 @@ body {
   // Position
 
   // block-model
-  justify-content: center;
+  justify-content: space-between;
   // Typography
 
   // Decoration
@@ -101,7 +104,7 @@ body {
   height: inherit;
   // Typography
   @extend %font-Inter;
-  @include text(
+  @include mixins.text(
     $size: var(--text-fsize-L),
     $style: normal,
     $weight: 400,
@@ -141,7 +144,7 @@ body {
 
   // Typography
   @extend %font-Forum;
-  @include text(
+  @include mixins.text(
     $size: var(--title-h1_desktop),
     $style: normal,
     $weight: 400,
@@ -162,7 +165,7 @@ body {
 
   // Typography
   @extend %font-Forum;
-  @include text(
+  @include mixins.text(
     $size: var(--title-h1_desktop),
     $style: normal,
     $weight: 400,
@@ -184,7 +187,7 @@ body {
 
   // Typography
   @extend %font-Forum;
-  @include text(
+  @include mixins.text(
     $size: var(--title-h2_desktop),
     $style: normal,
     $weight: 400,
@@ -206,7 +209,7 @@ body {
 
   // Typography
   @extend %font-Forum;
-  @include text(
+  @include mixins.text(
     $size: var(--title-h2_desktop),
     $style: normal,
     $weight: 400,
@@ -228,7 +231,7 @@ body {
 
   // Typography
   @extend %font-Forum;
-  @include text(
+  @include mixins.text(
     $size: var(--title-h4_desktop),
     $style: normal,
     $weight: 400,
@@ -250,7 +253,7 @@ body {
 
   // Typography
   @extend %font-Forum;
-  @include text(
+  @include mixins.text(
     $size: var(--title-h5_desktop),
     $style: normal,
     $weight: 400,
@@ -272,7 +275,7 @@ body {
 
   // Typography
   @extend %font-Inter;
-  @include text(
+  @include mixins.text(
     $size: var(--text-fsize-L),
     $style: normal,
     $weight: 400,
@@ -294,7 +297,7 @@ body {
 
   // Typography
   @extend %font-Inter;
-  @include text(
+  @include mixins.text(
     $size: var(--text-fsize-S),
     $style: normal,
     $weight: 400,
@@ -398,15 +401,15 @@ img {
 
   // Various
 
-  @include media-wide-desktop {
+  @include mixins.media-wide-desktop {
     max-width: var(--width-desktop);
   }
 
-  @include media-desktop {
+  @include mixins.media-desktop {
     padding: 0 var(--padding-content-desktop);
   }
 
-  @include media-tablet {
+  @include mixins.media-tablet {
     padding: 0 var(--padding-content-tablet);
   }
 }
@@ -586,7 +589,7 @@ img {
   // Animation
 
   // Various
-  @include media-tablet-large {
+  @include mixins.media-tablet-large {
     // Position
 
     // block-model
@@ -671,7 +674,7 @@ img {
   // Animation
 
   // Various
-  @include media-tablet-large {
+  @include mixins.media-tablet-large {
     // Position
 
     // block-model

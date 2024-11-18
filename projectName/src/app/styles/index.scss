@@ -1,19 +1,8 @@
-// normalize
-@import "../../shared/ui/common styles/base/normalize";
+// common project styles
+@use "../../shared/ui/common styles/index.scss";
 
-//abstracts
-@import "../../shared/ui/common styles/abstracts/constants";
-@import "../../shared/ui/common styles/abstracts/placeholders";
-@import "../../shared/ui/common styles/abstracts/mixins";
-@import "../../shared/ui/common styles/abstracts/animations";
+// footer styles
+@use "../../widgets/footer/ui/footer.module.scss";
 
-//layout
-@import "../../shared/ui/common styles/layout/content-structure";
-
-//base
-@import "../../shared/ui/common styles/base/typography";
-@import "../../shared/ui/common styles/base/common";
-
-//components
-@import "../../widgets/test-section/ui/test-section";
-@import "../../widgets/footer/ui/footer";
+// test-section styles
+@use "../../widgets/test-section/ui/test-section.module.scss";

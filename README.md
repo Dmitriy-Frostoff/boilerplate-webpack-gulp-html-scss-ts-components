@@ -124,7 +124,7 @@ Also there's a helper functions to deal with files when they are renamed with ad
 - `constants` (path: `projectName/src/shared/ui/common styles/abstracts/_constants.scss`),
 - `mixins` (path: `projectName/src/shared/ui/common styles/abstracts/_mixins.scss`),
 - `placeholders` (path: `projectName/src/shared/ui/common styles/abstracts/_placeholders.scss`).
-  You can check them for benefits or delete otherwise (also check `index.scss` file `projectName/src/app/styles/index.scss` to delete unused anymore scss files!).
+  You can check them for benefits or delete otherwise (also check `index.scss` file `projectName/src/app/index.scss` to delete unused anymore scss files!).
 
 Also there's `base` folder with styles or classes that impact on entire boilerplate layout view and includes `Blocks` (BEM methodology). There're
 
@@ -134,16 +134,23 @@ Also there's `base` folder with styles or classes that impact on entire boilerpl
 
 `layout` folder includes classes that forming `flex` or `grid` layout.
 
+`index.scss` entire project styles bundle (details below).
+
 Also it's possible to use `css-modules` via the `css-loader` (check the [css-loader](https://github.com/webpack-contrib/css-loader?tab=readme-ov-file#modules) for details). Read more about the `css-modules` usage at [css-modules](https://github.com/css-modules/css-modules?tab=readme-ov-file) and then just turn the `.(css|sass|scss)` extension of the file with styles into `.module.(css|scss|sass)`.
 
-So, there're possible usage of the global styles all over the project (common ui styles to prevent unnecessary classes multiplications) and locally scoped `*.module.(css|sass|scss)` styles for `segments`, `slices` or `layers` that contain component's unique data and are small and potentially can have classNames similarity problems all over the project.
+Since `@import` and global scope styles were officially deprecated by `Sass team`, one should use `@forward` and `@use` instead. Check the [Official Sass docs: breaking changes - @use instead of @import](https://sass-lang.com/documentation/at-rules/use/) and [Official Sass docs: breaking changes - @forward instead of @import](https://sass-lang.com/documentation/at-rules/forward/) for details.
 
-Long story short say all the `.(css|scss|sass)` files are handled as `global` (normal) CSS, and `.module.(css|scss|sass)`
-are `css-modules` with `local` scope.
+The boilerplate's styles guide is build on `@forward` usage for creating `entire project styles bundle` in the `index.scss` (`projectName/src/shared/ui/common styles/index.scss`) and `@use` for importing `styles bundle` to the necessary `.(css|scss|sass)` files.
+
+So, there're possible usage of the `entire project styles bundle` (common ui styles to prevent unnecessary classes multiplications) and locally scoped `*.module.(css|sass|scss)` styles for `segments`, `slices` or `layers` that contain component's unique data and are small and potentially can have classNames similarity problems all over the project.
+
+Long story short say `index.scss` (`projectName/src/shared/ui/common styles/index.scss`) file is handled as `entire project use bundle` to reduce repetative styles and to feat `DRY principle`, and `.module.(css|scss|sass)` are `css-modules` with `local` scope for `components styling` and avoiding classnames similarity problems.
+
+As for `index.scss` in the `app layer` (`projectName/src/app/styles/index.scss`) it contains `bundles of entire project styles` (the entire project styles for creating the one `*.css` file as result).
 
 ---
 
-**note**: pay attention to order of the imported files in the `index.scss`! The last improts will override previous one if there's matches in classnames or ids or tags!
+**note**: pay attention to order of the imported (e.g. via `@forward` and `@use`) files in the `index.scss`! The last imports will override previous one if there's matches in classnames or ids or tags!
 
 ---
 
@@ -406,6 +413,15 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 
 ---
 
+#### Sass / SCSS
+
+- [Official Sass docs](https://sass-lang.com/);
+- [Official Sass docs: breaking changes - @use instead of @import](https://sass-lang.com/documentation/at-rules/use/);
+- [Official Sass docs: breaking changes - @forward instead of @import](https://sass-lang.com/documentation/at-rules/forward/);
+- [Issue with @extend, placeholders and @use](https://github.com/sass/dart-sass/issues/1042);
+
+---
+
 #### BEM
 
 - [Official BEM docs: Quick start](https://en.bem.info/methodology/quick-start/);
@@ -423,4 +439,4 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 - [boilerplate-jest](https://github.com/Dmitriy-Frostoff/boilerplate-jest);
 
-#### done: April 24, 2024
+#### done: November 18, 2024

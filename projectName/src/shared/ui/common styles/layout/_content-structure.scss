@@ -1,17 +1,19 @@
+@use '../abstracts/mixins';
+
 .layout-one-column {
-  @include flex-one-column();
+  @include mixins.flex-one-column();
 }
 
 .layout-two-columns {
-  @include flex-two-columns();
+  @include mixins.flex-two-columns();
 }
 
 .layout-multiple-columns {
-  @include flex-multiple-columns();
+  @include mixins.flex-multiple-columns();
 }
 
 .layout-multiple-grid-columns {
-  @include grid-multiple-columns(
+  @include mixins.grid-multiple-columns(
     $rows: 2,
     $columns: 4,
     $el-width: calc(270 / 1200 * 100%),

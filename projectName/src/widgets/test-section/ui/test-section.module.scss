@@ -1,9 +1,11 @@
+@use '../../../shared/ui/common styles/index' as ui_common;
+
 .test-section {
   // Position
 
   // block-model
   width: 100%;
-  max-width: $width-desktop;
+  max-width: ui_common.$width-desktop;
   min-height: 600px;
   justify-content: center;
   margin: 0 auto;

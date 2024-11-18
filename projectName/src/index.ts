@@ -1,6 +1,6 @@
-import './app/index';
-import { logSelfCheck } from './shared/projectNameSelfCheck/index';
+import "./app/index";
+import logSelfCheck from "./shared/projectNameSelfCheck/index";
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   logSelfCheck();
 });

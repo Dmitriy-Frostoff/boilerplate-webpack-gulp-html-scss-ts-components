@@ -1,3 +1,5 @@
+@use '../../../shared/ui/common styles/index' as ui_common;
+
 footer {
   /* Position */
 
@@ -80,7 +82,7 @@ footer {
   &:active {
     color: var(--color-interactive);
     @extend %cursor-pointer;
-    @include animation(
+    @include ui_common.animation(
       $name: pulsation,
       $duration: 1s,
       $iteration-count: infinite,
@@ -103,7 +105,7 @@ footer {
     width: inherit;
     height: inherit;
     @extend %cursor-pointer;
-    @include animation(
+    @include ui_common.animation(
       $name: pulsation,
       $duration: 1s,
       $iteration-count: infinite,
@@ -123,6 +125,7 @@ footer {
 
   /* Decoration */
   @extend %pointer-events-disable;
+
   /* Animation */
   @extend %transition-transform;
   @extend %transition-color;
@@ -140,6 +143,7 @@ footer {
 
   /* block-model */
   width: 5vw;
+
   /* Typography */
   text-align: right;
   /* Decoration */
@@ -147,13 +151,15 @@ footer {
   /* Animation */
 
   /* Various */
-  @include media-tablet-large {
+  @include ui_common.media-tablet-large {
     /* Position */
 
     /* block-model */
     width: 13vw;
+
     /* Typography */
     text-align: right;
+
     /* Decoration */
 
     /* Animation */
@@ -174,7 +180,7 @@ footer {
   /* Animation */
 
   /* Various */
-  @include media-tablet-large {
+  @include ui_common.media-tablet-large {
     /* Position */
 
     /* block-model */
