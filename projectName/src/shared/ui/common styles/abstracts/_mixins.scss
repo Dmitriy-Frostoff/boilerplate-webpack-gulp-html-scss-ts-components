@@ -1,3 +1,5 @@
+@use './constants';
+
 @mixin text(
   $size: 20px,
   $style: normal,
@@ -91,37 +93,37 @@
 }
 
 @mixin media-wide-desktop {
-  @media (min-width: calc(var(--width-desktop) + 1px)) {
+  @media (min-width: calc(constants.$width-desktop + 1px)) {
     @content;
   }
 }
 
 @mixin media-desktop {
-  @media (max-width: var(--width-desktop)) {
+  @media (max-width: constants.$width-desktop) {
     @content;
   }
 }
 
 @mixin media-tablet-large {
-  @media (max-width: var(--width-tablet-large)) {
+  @media (max-width: constants.$width-tablet-large) {
     @content;
   }
 }
 
 @mixin media-tablet {
-  @media (max-width: var(--width-tablet)) {
+  @media (max-width: constants.$width-tablet) {
     @content;
   }
 }
 
 @mixin media-tablet-small {
-  @media (max-width: var(--width-tablet-small)) {
+  @media (max-width: constants.$width-tablet-small) {
     @content;
   }
 }
 
 @mixin media-tablet-minus1px {
-  @media (max-width: calc(var(--width-tablet) - 1px)) {
+  @media (max-width: calc(constants.$width-tablet - 1px)) {
     @content;
   }
 }

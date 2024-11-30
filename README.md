@@ -134,6 +134,10 @@ Also there's `base` folder with styles or classes that impact on entire boilerpl
 
 `layout` folder includes classes that forming `flex` or `grid` layout.
 
+**Caution!** Do not use `css-variables` in the `@mixins` with `@media`! It won't work! Use `SCSS/Sass` variables or `Absolute length units` like `px`. `@media` requires definitely set values, but `css-variables` are computed at the moment of applying to the HTML element.
+
+> Note: Variables do not work inside media queries and container queries. You can use the var() function in any part of a value in any property on an element. You cannot use var() for property names, selectors, or anything aside from property values, which means you can't use it in a media query or container query. [Using CSS custom properties (variables) / MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+
 `index.scss` entire project styles bundle (details below).
 
 Also it's possible to use `css-modules` via the `css-loader` (check the [css-loader](https://github.com/webpack-contrib/css-loader?tab=readme-ov-file#modules) for details). Read more about the `css-modules` usage at [css-modules](https://github.com/css-modules/css-modules?tab=readme-ov-file) and then just turn the `.(css|sass|scss)` extension of the file with styles into `.module.(css|scss|sass)`.
@@ -419,6 +423,7 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [Official Sass docs: breaking changes - @use instead of @import](https://sass-lang.com/documentation/at-rules/use/);
 - [Official Sass docs: breaking changes - @forward instead of @import](https://sass-lang.com/documentation/at-rules/forward/);
 - [Issue with @extend, placeholders and @use](https://github.com/sass/dart-sass/issues/1042);
+- [Variables do not work inside media queries and container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties);
 
 ---
 
@@ -439,4 +444,4 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 - [boilerplate-jest](https://github.com/Dmitriy-Frostoff/boilerplate-jest);
 
-#### done: November 18, 2024
+#### done: November 30, 2024
