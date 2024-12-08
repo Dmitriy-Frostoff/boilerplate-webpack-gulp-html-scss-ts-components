@@ -12,7 +12,11 @@ import { $, ExecaError } from 'execa';
 export default async function updateNpmPackages(writeErrorLogFile, logFile) {
   try {
     console.log('Outdated packages found. Running npm update...\n');
-    await $(`npm update`, { stdio: ['pipe', 'pipe', 'pipe'], cleanup: true });
+    await $(`npm update`, {
+      stdio: ['pipe', 'pipe', 'pipe'],
+      verbose: 'full',
+      cleanup: true,
+    });
   } catch (error) {
     console.error(`An error occured: ${error.message}`);
 

@@ -13,6 +13,7 @@ export default async function runRegressionTests(writeErrorLogFile, logFile) {
     console.log('Run regression tests...\n');
     await $(`npm run html && npm run dev && npm run build && npm run dev`, {
       stdio: ['pipe', 'pipe', 'pipe'],
+      verbose: 'full',
       cleanup: true,
     });
   } catch (error) {
