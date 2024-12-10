@@ -112,6 +112,7 @@
     "../../src/**/*.ts",
     "../../tests/**/*.ts",
     "../../*.ts",
+    "../gulp/gulpfile.ts",
     "../webpack/webpack.config.ts"
   ] /*Specifies an array of filenames or patterns to include in the program. These filenames are resolved relative to the directory containing the tsconfig.json file.
   "./" - is case for usage global.d.ts, otherwise TS won't use it and Webpack will fall with the exception! (e.g. TS2792: Cannot find module '../../path/to/imported/file, i.e. TS doesn't recognize files differ to (*.jsx?|.tsx?)
