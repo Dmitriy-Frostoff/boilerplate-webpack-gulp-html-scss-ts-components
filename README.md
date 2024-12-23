@@ -198,8 +198,8 @@ But the best possible way for nowdays is to use appropriate to your goals archit
         Take a notice: `projectName/src/shared/ui/common styles/abstracts/_constants.scss` turn to use `CSS variables`! It's far convenient for the result css file (`DRY` principle as is);
 
       - `projectName/src/components/base` - `segment`, there're Blocks (in BEM terminology). For now there're
-        `_normalize.scss` (to softly set your browser default styles to be more 'average' with others one to ease the process of crossbrowsers development),
-        `_typography.scss` - this file includes font data and variables (`CSS variables` to be precise) of font size as for example,
+        `_normalize.scss` (to softly set your browser default styles to be more 'average' with others one to ease the process of crossbrowsers development, based on [`modern-normalize`](https://github.com/sindresorhus/modern-normalize) package),  
+        `_typography.scss` - this file includes font data and variables (`CSS variables` to be precise) of font size as for example,  
         `_common.scss` - this file contains the most basic classes of a project perfomance like titles properties, containers properties, modificators for text classes etc;
 
       - `projectName/src/components/layout` - `segment`, includes `_content-structure.scss` file with basic layouts to use in a future project (one column or multiple columns as basic (or foundation as you wish) and they can be easily added with the necessary property modificators of new styling classes (e.g. for current paragraph or section to align everything to the center etc as BEM recommends, behaves like `CSS frameworks'` classes do)) (`_content-structure.scss` rely on `flex` or `grid` basics, also depend on mixins in the `projectName/src/shared/ui/common styles/abstracts/_mixins.scss` file so check it out or modify for your needs);
@@ -307,6 +307,12 @@ To integrate the boilerplate do the following steps (**note**: copy the project 
 
 ```bash
 npm i -D @types/gulp @types/gulp-file-include @types/gulp-rename cross-env css-loader gulp gulp-cli gulp-file-include gulp-rename gulp-replace html-loader html-webpack-plugin image-minimizer-webpack-plugin imagemin imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo mini-css-extract-plugin resolve-url-loader sass sass-loader ts-loader tsx typescript webpack webpack-cli webpack-dev-server
+```
+
+- install current packages as `dependencies` via bash command below:
+
+```bash
+npm i modern-normalize
 ```
 
 - do all the steps from the top of the document's [# !Important](#!Important) (i.e. rename `projectName`, delete unnecessary files);
@@ -417,6 +423,12 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 
 ---
 
+#### Modern-normalize
+
+- [Official github repo of Modern-normalize](https://github.com/sindresorhus/modern-normalize);
+
+---
+
 #### Sass / SCSS
 
 - [Official Sass docs](https://sass-lang.com/);
@@ -444,4 +456,4 @@ With the new `packages` releases, the ones above can turn to pumpkin, so check'e
 - [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 - [boilerplate-jest](https://github.com/Dmitriy-Frostoff/boilerplate-jest);
 
-#### done: November 30, 2024
+#### done: December 23, 2024
