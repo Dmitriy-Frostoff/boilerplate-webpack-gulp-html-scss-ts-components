@@ -55,7 +55,7 @@
     "imagemin-svgo": "^11.0.1",
     "mini-css-extract-plugin": "^2.9.3",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.89.2",
+    "sass": "^1.90.0",
     "sass-loader": "^16.0.5",
     "ts-loader": "^9.5.2",
     "tsx": "^4.20.3",
